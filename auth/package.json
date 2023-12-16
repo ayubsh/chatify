@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node-dev --poll src/index.ts"
+    "start": "ts-node-dev --poll src/index.ts",
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "make": "knex migrate:make"
   },
   "repository": {
     "type": "git",
@@ -24,13 +27,24 @@
   },
   "homepage": "https://github.com/ayubsh/chatify#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "knex": "^3.1.0",
+    "mongoose": "^8.0.3",
+    "mongose": "^0.0.2-security",
+    "objection": "^3.1.3",
+    "pg": "^8.11.3",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.3.3",
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@types/express": "^4.17.21"
+    "@types/bcryptjs": "^2.4.6",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/mongoose": "^5.11.97"
   }
 }

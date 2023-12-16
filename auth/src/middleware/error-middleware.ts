@@ -8,7 +8,7 @@ export function errorHandler(error: Error, req: Request, res: Response, next: Ne
 
   res.status(500).send({
     errors: [
-      {msg: 'something went wrong'}
+      {msg: error.message}
     ]
   })
 }

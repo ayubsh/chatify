@@ -24,4 +24,19 @@ spec:
           image: ayubsh/auth
       restartPolicy: Always
 ---
+# https://kubernetes.io/docs/concepts/services-networking/service/
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-srv
+spec:
+  selector:
+    app: auth
+  type: ClusterIP
+  ports:
+    - name: auth
+      protocol: TCP
+      port: 5000
+      targetPort: 5000
+---
 
