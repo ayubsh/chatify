@@ -16,3 +16,4 @@ spec:
                 name: auth-srv
                 port:
                   number: 5000
+

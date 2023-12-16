@@ -1,0 +1,45 @@
+# https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-depl
+  namespace: default
+  labels:
+    app: client
+spec:
+  selector:
+    matchLabels:
+      app: client
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: client
+    spec:
+      # initContainers:
+      # Init containers are exactly like regular containers, except:
+      # - Init containers always run to completion.
+      # - Each init container must complete successfully before the next one starts.
+      containers:
+        - name: client
+          image: ayubsh/client
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+---
+# https://kubernetes.io/docs/concepts/services-networking/service/
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-srv
+  namespace: default
+spec:
+  selector:
+    app: client
+  type: ClusterIP
+  ports:
+    - name: client
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
+---
+
