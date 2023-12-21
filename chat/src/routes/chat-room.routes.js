@@ -34,12 +34,12 @@ router.post("/newroom", async (req, res) => {
 });
 
 //get chatrooms
-router.get("/", async (req, res) => {
-  const rooms = await chatRoomModel.find();
+//router.get("/", async (req, res) => {
+//const rooms = await chatRoomModel.find();
 
-  console.log(rooms);
-  res.send(rooms);
-});
+//console.log(rooms);
+//res.send(rooms);
+//});
 
 //get chatrooms by id
 //TODO: handle the params id, ((type string) at path "_id" for model "chatRoom")

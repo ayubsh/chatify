@@ -29,9 +29,23 @@ router.post('/register', [
         Email,
         Password: hash
       }
+      
       const insertedUser = await User.query().insert(newUser);
       const token = jwt.sign({id: insertedUser.$id}, 'somesecret')
-      res.status(201).json(token);
+      console.log({
+        token,
+        user: {
+          Username,
+          id: insertedUser.id
+        }
+      })
+      res.status(201).json({
+        token,
+        user: {
+          Username,
+          id: insertedUser.id
+        }
+      });
     } catch (error) {
       next(error)
     } 

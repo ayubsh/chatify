@@ -1,5 +1,6 @@
 import express from "express";
 import Knex from 'knex';
+import cors from 'cors'
 import { Model } from "objection";
 
 
@@ -14,6 +15,7 @@ Model.knex(knex);
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 app.get('/', (_, res) => {
   res.send("hellow world")

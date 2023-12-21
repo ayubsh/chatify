@@ -24,8 +24,6 @@ spec:
         - name: client
           image: ayubsh/client
           imagePullPolicy: IfNotPresent
-          ports:
-            - containerPort: 5173
       restartPolicy: Always
 ---
 # https://kubernetes.io/docs/concepts/services-networking/service/

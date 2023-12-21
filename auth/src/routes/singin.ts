@@ -21,7 +21,10 @@ router.post('/singin',[
     if (!matchPassword) throw new Error('Invalid Password');
 
     const token = jwt.sign({id: foundUser.$id}, 'somesecret');
-    res.status(200).json(token);
+    res.status(200).json({
+      token,
+      Username
+    });
 
   }catch(error){
     next(error);
