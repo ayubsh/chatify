@@ -24,8 +24,7 @@ router.get("/:roomId", async (req, res) => {
   const { roomId } = req.params;
   try {
     const foundmessages = await messageModel.find({ chatRoomId: roomId });
-    console.log(foundmessages);
-    res.send();
+    res.json(foundmessages);
   } catch (error) {
     console.log(error);
   }

@@ -23,7 +23,10 @@ router.post('/singin',[
     const token = jwt.sign({id: foundUser.$id}, 'somesecret');
     res.status(200).json({
       token,
-      Username
+      user: {
+        Username,
+        id: foundUser.id
+      }
     });
 
   }catch(error){

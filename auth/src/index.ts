@@ -9,6 +9,7 @@ import { errorHandler } from "./middleware/error-middleware";
 import { singup } from "./routes/register"
 import { singIn } from "./routes/singin";
 import { singout } from "./routes/singout";
+import { userRouter } from "./routes/users"
 
 const knex = Knex(config.development)
 Model.knex(knex);
@@ -23,6 +24,7 @@ app.get('/', (_, res) => {
 app.use('/api', singup);
 app.use('/api', singIn);
 app.use('/api', singout);
+app.use('/api', userRouter);
 app.use(errorHandler)
 
 const PORT = process.env.PORT || 5000;
